@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - EventHub</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+     <!-- Navigation  -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🎫</span>
+                <span class="logo-text">EventHub</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+     <!-- Payment Section  -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-container fade-in">
+                <div class="payment-header">
+                    <h1>Complete Your Payment</h1>
+                    <p>Secure payment powered by Visa</p>
+                </div>
+
+                <div class="payment-grid">
+                     <!-- Order Summary  -->
+                    <div class="order-summary-card slide-up">
+                        <h2>Order Summary</h2>
+                        <div id="orderSummary" class="order-details"></div>
+                    </div>
+
+                     <!-- Payment Form  -->
+                    <div class="payment-form-card slide-up">
+                        <h2>Payment Details</h2>
+                        <div class="payment-method-badge">
+                            <span class="visa-logo">VISA</span>
+                            <span class="secure-badge">🔒 Secure Payment</span>
+                        </div>
+                        
+                        <form id="paymentForm" class="payment-form">
+                            <div class="form-group">
+                                <label for="cardholderName">Cardholder Name</label>
+                                <input type="text" id="cardholderName" required placeholder="John Doe" autocomplete="cc-name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number</label>
+                                <input type="text" id="cardNumber" required placeholder="1234 5678 9012 3456" maxlength="19" autocomplete="cc-number">
+                                <div class="card-type-indicator" id="cardTypeIndicator"></div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiryDate">Expiry Date</label>
+                                    <input type="text" id="expiryDate" required placeholder="MM/YY" maxlength="5" autocomplete="cc-exp">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV</label>
+                                    <input type="text" id="cvv" required placeholder="123" maxlength="3" autocomplete="cc-csc">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="billingEmail">Billing Email</label>
+                                <input type="email" id="billingEmail" required placeholder="your@email.com" autocomplete="email">
+                            </div>
+
+                            <div class="payment-total">
+                                <span>Total Amount:</span>
+                                <span id="totalAmount" class="total-price">$0.00</span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-full btn-large">
+                                <span id="payButtonText">Pay Now</span>
+                            </button>
+
+                            <div class="payment-security-info">
+                                <p>🔒 Your payment information is encrypted and secure</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Processing Modal  -->
+    <div id="processingModal" class="modal">
+        <div class="modal-content processing-modal">
+            <div class="processing-animation">
+                <div class="spinner"></div>
+                <h3>Processing Payment...</h3>
+                <p>Please wait while we process your transaction</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/payment.js"></script>
+</body>
+</html>

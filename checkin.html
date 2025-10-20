@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Check-in - EventHub</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
+</head>
+<body>
+     <!-- Navigation  -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🎫</span>
+                <span class="logo-text">EventHub</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="checkin.html" class="active">Check-in</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+     <!-- Check-in Section  -->
+    <section class="checkin-section">
+        <div class="container">
+            <div class="checkin-header fade-in">
+                <h1>QR Code Check-in</h1>
+                <p>Scan attendee tickets to verify and check them in</p>
+            </div>
+
+            <div class="checkin-container fade-in">
+                <div class="scanner-card">
+                    <h2>Scanner</h2>
+                    <div id="qr-reader" class="qr-reader"></div>
+                    <div class="scanner-controls">
+                        <button id="startScanBtn" class="btn btn-primary">Start Scanner</button>
+                        <button id="stopScanBtn" class="btn btn-secondary" style="display: none;">Stop Scanner</button>
+                    </div>
+                </div>
+
+                <div class="scan-result-card">
+                    <h2>Scan Result</h2>
+                    <div id="scanResult" class="scan-result">
+                        <p class="empty-state">Waiting for scan...</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkin-history fade-in">
+                <h2>Recent Check-ins</h2>
+                <div id="checkinHistory" class="checkin-list"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/checkin.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organizer Dashboard - EventHub</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+     <!-- Navigation  -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🎫</span>
+                <span class="logo-text">EventHub</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="checkin.html">Check-in</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+     <!-- Dashboard Section  -->
+    <section class="dashboard-section">
+        <div class="container">
+            <div class="dashboard-header fade-in">
+                <h1>Organizer Dashboard</h1>
+                <p id="welcomeMessage">Welcome back!</p>
+            </div>
+
+             <!-- Create Event Form  -->
+            <div class="dashboard-card fade-in">
+                <h2>Create New Event</h2>
+                <form class="event-form" id="createEventForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventName">Event Name</label>
+                            <input type="text" id="eventName" required placeholder="Summer Music Festival">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventDate">Event Date</label>
+                            <input type="datetime-local" id="eventDate" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventLocation">Location</label>
+                            <input type="text" id="eventLocation" required placeholder="Central Park, NY">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventCategory">Category</label>
+                            <select id="eventCategory" required>
+                                <option value="concert">Concert</option>
+                                <option value="conference">Conference</option>
+                                <option value="workshop">Workshop</option>
+                                <option value="sports">Sports</option>
+                                <option value="festival">Festival</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="eventPrice">Ticket Price ($)</label>
+                            <input type="number" id="eventPrice" required min="0" step="0.01" placeholder="50.00">
+                        </div>
+                        <div class="form-group">
+                            <label for="eventTickets">Available Tickets</label>
+                            <input type="number" id="eventTickets" required min="1" placeholder="100">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="eventDescription">Description</label>
+                        <textarea id="eventDescription" rows="4" required placeholder="Describe your event..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Create Event</button>
+                </form>
+            </div>
+
+             <!-- My Events  -->
+            <div class="dashboard-card fade-in">
+                <h2>My Events</h2>
+                <div id="myEventsList" class="events-list"></div>
+                
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>

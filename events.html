@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Events - EventHub</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+     <!-- Navigation  -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🎫</span>
+                <span class="logo-text">EventHub</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html" class="active">Events</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+     <!-- Events Section  -->
+    <section class="events-section">
+        <div class="container">
+            <div class="events-header fade-in">
+                <h1>Discover Events</h1>
+                <p>Find your next amazing experience</p>
+            </div>
+
+             <!-- Search and Filter  -->
+            <div class="events-controls fade-in">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="Search events...">
+                </div>
+                <div class="filter-box">
+                    <select id="categoryFilter">
+                        <option value="all">All Categories</option>
+                        <option value="concert">Concert</option>
+                        <option value="conference">Conference</option>
+                        <option value="workshop">Workshop</option>
+                        <option value="sports">Sports</option>
+                        <option value="festival">Festival</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="filter-box">
+                    <select id="priceFilter">
+                        <option value="all">All Prices</option>
+                        <option value="free">Free</option>
+                        <option value="0-50">$0 - $50</option>
+                        <option value="50-100">$50 - $100</option>
+                        <option value="100+">$100+</option>
+                    </select>
+                </div>
+            </div>
+
+             <!-- Events Grid  -->
+            <div id="eventsGrid" class="events-grid"></div>
+        </div>
+    </section>
+
+     <!-- Purchase Modal  -->
+    <div id="purchaseModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Purchase Ticket</h2>
+            <div id="modalEventDetails"></div>
+            <form id="purchaseForm">
+                <div class="form-group">
+                    <label for="buyerName">Your Name</label>
+                    <input type="text" id="buyerName" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="buyerEmail">Email</label>
+                    <input type="email" id="buyerEmail" required placeholder="your@email.com">
+                </div>
+                <div class="form-group">
+                    <label for="ticketQuantity">Number of Tickets</label>
+                    <input type="number" id="ticketQuantity" min="1" value="1" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Complete Purchase</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/events.js"></script>
+</body>
+</html>

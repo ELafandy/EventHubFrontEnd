@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - EventHub</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+     <!-- Navigation  -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-icon">🎫</span>
+                <span class="logo-text">EventHub</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Events</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="#" id="logoutBtn">Logout</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+     <!-- Profile Section  -->
+    <section class="profile-section">
+        <div class="container">
+             <!-- User Info Card with Edit Button -->
+            <div class="profile-header fade-in">
+                <div class="profile-avatar">
+                    <img id="userProfilePhoto" src="/placeholder.svg" alt="Profile Photo" style="display: none; width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+                    <span id="userInitials">U</span>
+                </div>
+                <div class="profile-info">
+                    <h1 id="userName">User Name</h1>
+                    <p id="userEmail">user@example.com</p>
+                    <span class="user-type" id="userType">Customer</span>
+                </div>
+                <button class="btn btn-primary" id="editProfileBtn" style="margin-left: auto;">Edit Profile</button>
+            </div>
+
+            <!-- Edit Profile Modal -->
+            <div id="editProfileModal" class="modal" style="display: none;">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2>Edit Profile</h2>
+                        <button class="close-btn" id="closeEditModal">&times;</button>
+                    </div>
+                    <form id="editProfileForm" class="edit-profile-form">
+                        <div class="form-group">
+                            <label for="editName">Full Name</label>
+                            <input type="text" id="editName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="editEmail">Email</label>
+                            <input type="email" id="editEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="profilePhotoInput">Profile Photo</label>
+                            <input type="file" id="profilePhotoInput" accept="image/*">
+                            <small>Upload a profile photo (JPG, PNG, GIF)</small>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                            <button type="button" class="btn btn-secondary" id="cancelEditBtn">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+             <!-- Tickets Section  -->
+            <div class="profile-content">
+                <div class="section-header slide-up">
+                    <h2>My Tickets</h2>
+                    <p id="ticketCount">0 tickets</p>
+                </div>
+
+                 <!-- Filter Tabs  -->
+                <div class="ticket-filters slide-up">
+                    <button class="filter-btn active" data-filter="all">All Tickets</button>
+                    <button class="filter-btn" data-filter="upcoming">Upcoming</button>
+                    <button class="filter-btn" data-filter="past">Past Events</button>
+                </div>
+
+                 <!-- Tickets Grid  -->
+                <div id="ticketsGrid" class="tickets-grid"></div>
+            </div>
+        </div>
+    </section>
+
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/profile.js"></script>
+</body>
+</html>
